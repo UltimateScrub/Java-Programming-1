@@ -26,14 +26,16 @@ public class AdvancedAstrology {
 
     public static void christmasTree(int height) {
         // part 3 of the exercise
-        int j = 1;
-        for (int i = 1; i <= height; i++) {
+        // Let's first print the top of the tree. 
+        // This works almost like the triangle.
+        int i = 1;
+        while (i <= height) {
             printSpaces(height - i);
-            printStars(j);
-            j += 2;
-
+            printStars(i + (i - 1));
+            i++;
         }
-        for (int i = 1; i <= 2; i++) {
+        
+        for (int j = 1; j <= 2; j++) {
             printSpaces(height - 2);
             printStars(3);
         }
