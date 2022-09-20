@@ -1,37 +1,40 @@
+
 import java.util.ArrayList;
 import java.util.Scanner;
- 
+
 public class Main {
- 
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
- 
-        ArrayList<Item> items = new ArrayList<>();
- 
+        ArrayList<Archive> archive = new ArrayList<>();
+
         while (true) {
             System.out.println("Identifier? (empty will stop)");
             String identifier = scanner.nextLine();
             if (identifier.isEmpty()) {
                 break;
             }
- 
+
             System.out.println("Name? (empty will stop)");
             String name = scanner.nextLine();
             if (name.isEmpty()) {
                 break;
             }
- 
-            Item item = new Item(identifier, name);
- 
-            if (!items.contains(item)) {
-                items.add(item);
+
+            Archive database = new Archive(identifier, name);
+
+            if (archive.contains(database)) {
+                continue;
+
+            } else {
+                archive.add(database);
+
             }
         }
- 
         System.out.println("==Items==");
-        for (Item item : items) {
-            System.out.println(item);
+        for (Archive entry : archive) {
+            System.out.println(entry.getIdentifier() + ": " + entry.getName());
+
         }
- 
     }
 }
